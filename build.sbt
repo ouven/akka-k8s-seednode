@@ -56,6 +56,7 @@ val `common-settings` = Seq(
 
 lazy val `akka-k8s-seednode` = project.in(file("."))
   .aggregate(`seednode-config`, `seednode-config-example`)
+  .settings(`common-settings`: _*)
   .settings(
     publishArtifact := false
   )
