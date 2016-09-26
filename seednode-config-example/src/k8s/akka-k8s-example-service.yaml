@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: akka-k8s-example
+  name: akka-k8s-example
+spec:
+  ports:
+    - name: http
+      port: 8080
+    - name: seed
+      port: 2552
+  type: NodePort
+  selector:
+    app: akka-k8s-example
+    
