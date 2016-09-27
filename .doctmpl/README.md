@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ouven/akka-k8s-seednode.svg?branch=master)](https://travis-ci.org/ouven/akka-k8s-seednode)
+[![Maven Central](https://img.shields.io/maven-central/v/de.aktey.akka.k8s/seednode-config_2.11.svg?maxAge=2592000)](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22seednode-config_2.11%22)
 
 # Akka kubernetes seednode config
 The purpose of this project is to provide an easy way to run akka
