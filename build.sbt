@@ -9,17 +9,17 @@ val `common-settings` = Seq(
     "The New BSD License" -> url("http://www.opensource.org/licenses/bsd-license.html")
   ),
 
-  sources in EditSource <++= baseDirectory.map(d => (d / ".doctmpl" / "README.md").get),
-  targetDirectory in EditSource <<= baseDirectory,
-  variables in EditSource <+= version { v => ("version", v) },
+  sources in EditSource ++= (baseDirectory.value / ".doctmpl" / "README.md").get,
+  targetDirectory in EditSource := baseDirectory.value,
+  variables in EditSource += "version" -> version.value,
 
   // relase with sbt-pgp plugin
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   releaseProcess := ReleaseProcess.steps,
 
-  publishTo <<= version { v: String =>
+  publishTo :=  {
     val nexus = "https://oss.sonatype.org/"
-    if (v.trim.endsWith("SNAPSHOT"))
+    if (version.value.trim.endsWith("SNAPSHOT"))
       Some("snapshots" at nexus + "content/repositories/snapshots")
     else
       Some("releases" at nexus + "service/local/staging/deploy/maven2")
