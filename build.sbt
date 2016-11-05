@@ -50,7 +50,6 @@ val `common-settings` = Seq(
     </scm>,
 
   organization := "de.aktey.akka.k8s",
-  version := "1.0.0",
   scalaVersion := "2.12.0",
   crossScalaVersions := Seq("2.11.8", "2.12.0")
 )
