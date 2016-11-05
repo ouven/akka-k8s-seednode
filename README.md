@@ -5,11 +5,11 @@
 The purpose of this project is to provide an easy way to run akka
 cluster applications on kubernetes.
 
-Current version: 1.0.0
+Current version: 1.0.1
 
 build.sbt
 ```sbt
-libraryDependencies += "de.aktey.akka.k8s" %% "seednode-config" % "1.0.0"
+libraryDependencies += "de.aktey.akka.k8s" %% "seednode-config" % "1.0.1"
 ``` 
 
 ## The problem
