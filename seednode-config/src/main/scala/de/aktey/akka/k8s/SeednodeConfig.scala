@@ -4,6 +4,8 @@ import java.net.URL
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
 import javax.net.ssl._
+import scala.collection.JavaConverters._
+
 
 import com.typesafe.config.{Config, ConfigFactory, ConfigParseOptions, ConfigSyntax}
 
@@ -57,12 +59,11 @@ object SeednodeConfig {
     val json = Source.fromInputStream(conn.getInputStream).mkString
 
     // using config, so I don't need another framework
-    import scala.collection.JavaConversions._
     for {
       subsets <- ConfigFactory
         .parseString(json, ConfigParseOptions.defaults().setSyntax(ConfigSyntax.JSON))
-        .getConfigList("subsets").toList
-      addresses <- subsets.getConfigList("addresses").toList
+        .getConfigList("subsets").asScala.toList
+      addresses <- subsets.getConfigList("addresses").asScala.toList
     } yield addresses.getString("ip")
   }
 

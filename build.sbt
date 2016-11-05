@@ -51,7 +51,8 @@ val `common-settings` = Seq(
 
   organization := "de.aktey.akka.k8s",
   version := "1.0.0",
-  scalaVersion := "2.11.8"
+  scalaVersion := "2.12.0",
+  crossScalaVersions := Seq("2.11.8", "2.12.0")
 )
 
 lazy val `akka-k8s-seednode` = project.in(file("."))
@@ -65,11 +66,11 @@ lazy val `seednode-config` = project
   .settings(`common-settings`: _*)
   .settings(
     libraryDependencies ++= Seq(
-      "com.typesafe" % "config" % "1.3.0"
+      "com.typesafe" % "config" % "1.3.1"
     )
   )
 
-val akkaVersion = "2.4.10"
+val akkaVersion = "2.4.12"
 val logbackVersion = "1.1.3"
 
 lazy val `seednode-config-example` = project
